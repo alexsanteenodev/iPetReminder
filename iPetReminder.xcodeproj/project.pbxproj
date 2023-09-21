@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D03BE6132ABB77BF00167F4E /* ReminderEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BE6122ABB77BF00167F4E /* ReminderEditView.swift */; };
 		D03F8AB32AB60EF70016CDAA /* iPetReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F8AB22AB60EF70016CDAA /* iPetReminderApp.swift */; };
 		D03F8AB52AB60EF70016CDAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F8AB42AB60EF70016CDAA /* ContentView.swift */; };
 		D03F8AB72AB60EF80016CDAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03F8AB62AB60EF80016CDAA /* Assets.xcassets */; };
 		D03F8ABA2AB60EF80016CDAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03F8AB92AB60EF80016CDAA /* Preview Assets.xcassets */; };
+		D03F8AC12AB60F9F0016CDAA /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F8AC02AB60F9F0016CDAA /* PetProfileView.swift */; };
+		D03F8AC52AB610C50016CDAA /* ProfileCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F8AC42AB610C50016CDAA /* ProfileCompletedView.swift */; };
+		D03F8AC82AB616E20016CDAA /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F8AC72AB616E20016CDAA /* ReminderView.swift */; };
+		D0DE804B2AC223E000F41056 /* ReminderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE804A2AC223E000F41056 /* ReminderSectionView.swift */; };
+		D0DE804D2AC225E400F41056 /* ReminderObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE804C2AC225E400F41056 /* ReminderObject.swift */; };
+		D0DE804F2AC2270E00F41056 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE804E2AC2270E00F41056 /* Notification.swift */; };
+		D0DE80532AC22C1200F41056 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE80522AC22C1200F41056 /* UserDefaults+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D03BE6122ABB77BF00167F4E /* ReminderEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditView.swift; sourceTree = "<group>"; };
 		D03F8AAF2AB60EF70016CDAA /* iPetReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPetReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03F8AB22AB60EF70016CDAA /* iPetReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPetReminderApp.swift; sourceTree = "<group>"; };
 		D03F8AB42AB60EF70016CDAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D03F8AB62AB60EF80016CDAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03F8AB92AB60EF80016CDAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D03F8AC02AB60F9F0016CDAA /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
+		D03F8AC42AB610C50016CDAA /* ProfileCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCompletedView.swift; sourceTree = "<group>"; };
+		D03F8AC62AB6169A0016CDAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D03F8AC72AB616E20016CDAA /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		D0DE804A2AC223E000F41056 /* ReminderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSectionView.swift; sourceTree = "<group>"; };
+		D0DE804C2AC225E400F41056 /* ReminderObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderObject.swift; sourceTree = "<group>"; };
+		D0DE804E2AC2270E00F41056 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		D0DE80522AC22C1200F41056 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +68,9 @@
 		D03F8AB12AB60EF70016CDAA /* iPetReminder */ = {
 			isa = PBXGroup;
 			children = (
+				D0DE80512AC22A2100F41056 /* Reminders */,
+				D0DE80502AC229F300F41056 /* Profile */,
+				D03F8AC62AB6169A0016CDAA /* Info.plist */,
 				D03F8AB22AB60EF70016CDAA /* iPetReminderApp.swift */,
 				D03F8AB42AB60EF70016CDAA /* ContentView.swift */,
 				D03F8AB62AB60EF80016CDAA /* Assets.xcassets */,
@@ -65,6 +85,28 @@
 				D03F8AB92AB60EF80016CDAA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D0DE80502AC229F300F41056 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D03F8AC02AB60F9F0016CDAA /* PetProfileView.swift */,
+				D03F8AC42AB610C50016CDAA /* ProfileCompletedView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D0DE80512AC22A2100F41056 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				D03F8AC72AB616E20016CDAA /* ReminderView.swift */,
+				D0DE804A2AC223E000F41056 /* ReminderSectionView.swift */,
+				D0DE804E2AC2270E00F41056 /* Notification.swift */,
+				D0DE804C2AC225E400F41056 /* ReminderObject.swift */,
+				D03BE6122ABB77BF00167F4E /* ReminderEditView.swift */,
+				D0DE80522AC22C1200F41056 /* UserDefaults+Extension.swift */,
+			);
+			path = Reminders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +180,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03F8AB52AB60EF70016CDAA /* ContentView.swift in Sources */,
+				D03F8AC82AB616E20016CDAA /* ReminderView.swift in Sources */,
+				D0DE804F2AC2270E00F41056 /* Notification.swift in Sources */,
+				D03BE6132ABB77BF00167F4E /* ReminderEditView.swift in Sources */,
+				D0DE804B2AC223E000F41056 /* ReminderSectionView.swift in Sources */,
+				D0DE804D2AC225E400F41056 /* ReminderObject.swift in Sources */,
 				D03F8AB32AB60EF70016CDAA /* iPetReminderApp.swift in Sources */,
+				D03F8AC52AB610C50016CDAA /* ProfileCompletedView.swift in Sources */,
+				D0DE80532AC22C1200F41056 /* UserDefaults+Extension.swift in Sources */,
+				D03F8AC12AB60F9F0016CDAA /* PetProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +320,13 @@
 				DEVELOPMENT_TEAM = DS8PT626S9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iPetReminder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +351,13 @@
 				DEVELOPMENT_TEAM = DS8PT626S9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iPetReminder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
