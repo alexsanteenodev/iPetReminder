@@ -30,7 +30,6 @@
 		D03F8AB92AB60EF80016CDAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D03F8AC02AB60F9F0016CDAA /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
 		D03F8AC42AB610C50016CDAA /* ProfileCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCompletedView.swift; sourceTree = "<group>"; };
-		D03F8AC62AB6169A0016CDAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D03F8AC72AB616E20016CDAA /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		D0DE804A2AC223E000F41056 /* ReminderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSectionView.swift; sourceTree = "<group>"; };
 		D0DE804C2AC225E400F41056 /* ReminderObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderObject.swift; sourceTree = "<group>"; };
@@ -70,7 +69,6 @@
 			children = (
 				D0DE80512AC22A2100F41056 /* Reminders */,
 				D0DE80502AC229F300F41056 /* Profile */,
-				D03F8AC62AB6169A0016CDAA /* Info.plist */,
 				D03F8AB22AB60EF70016CDAA /* iPetReminderApp.swift */,
 				D03F8AB42AB60EF70016CDAA /* ContentView.swift */,
 				D03F8AB62AB60EF80016CDAA /* Assets.xcassets */,
