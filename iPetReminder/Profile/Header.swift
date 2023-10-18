@@ -23,13 +23,13 @@ struct Header: View {
                           let uiImage = UIImage(data: data) {
                            Image(uiImage: uiImage)
                                .resizable()
-                               .aspectRatio(contentMode: .fit)
+                               .aspectRatio(contentMode: .fill)
                                .frame(width: 150, height: 150)
                                .clipShape(Circle())
                        } else {
                            Image(systemName: "person.circle.fill")
                                .resizable()
-                               .aspectRatio(contentMode: .fit)
+                               .aspectRatio(contentMode: .fill)
                                .frame(width: 150, height: 150)
                                .clipShape(Circle())
                        }

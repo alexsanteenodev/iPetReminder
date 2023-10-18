@@ -54,15 +54,22 @@ struct ProfileEditView: View {
                                             
                                         }
                                 
-                                if let data = profileImageData,
-                                              let uiImage = UIImage(data: data) {
-                                               Image(uiImage: uiImage)
-                                                   .resizable()
-                                                   .resizable()
-                                                   .aspectRatio(contentMode: .fit)
-                                                   .frame(width: 150, height: 150) // Adjust the size as needed
-                                                   .padding()
-                                           }
+
+    
+                                
+                                if image.size.width > 0 && image.size.height > 0 {
+                                    Image(uiImage: image) // Display the default image if profileImageData is nil
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 150, height: 150)
+                                        .padding()
+                                } else if let data = profileImageData, let profileImage = UIImage(data: data) {
+                                    Image(uiImage: profileImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 150, height: 150)
+                                        .padding()
+                                }
                                 
                                 TextField("Pet Name", text: $petName)
                                 TextField("Pet Type/Breed", text: $petType)
@@ -70,6 +77,12 @@ struct ProfileEditView: View {
                             }
                         }
         }
+        .onAppear {
+                    if let data = image.jpegData(compressionQuality: 0.8) {
+                        // Save the image data to AppStorage
+                        profileImageData = data
+                    }
+                }
         .navigationBarItems(
             trailing:
                 Button (

@@ -6,5 +6,9 @@
 	<string>We need access to your calendar for reminders</string>
 	<key>NSUserNotificationAlertStyle</key>
 	<string>alert</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to photo library for you to choose pet photo</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to make photo of your pet</string>
 </dict>
 </plist>
