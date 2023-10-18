@@ -51,15 +51,12 @@ struct ReminderSectionView: View {
         reminders.append(newReminder)
         
         UserDefaults.standard.setReminders(reminders, forKey: key)
-        
-        print("newReminder")
 
-        print(newReminder)
         let reminderTitle = newReminder.title == "" ?  title : newReminder.title
         let reminderDescription = newReminder.description == "" ? text : newReminder.description
-
+        
         if !newReminder.isRecuring {
-            notification.setNotificationFromDate(date:newReminder.date ?? Date(), id: newReminder.id, title: reminderTitle, text:text, repeats:false)
+            notification.setNotificationFromDate(date:newReminder.date ?? Date(), id: newReminder.id, title: reminderTitle, text:reminderDescription, repeats:false)
         }else if newReminder.dateComponent != nil {
             notification.setNotificationFromDateComponents( components :newReminder.dateComponent ?? DateComponents(), id: newReminder.id, title: reminderTitle, text:reminderDescription, repeats:false)
         }

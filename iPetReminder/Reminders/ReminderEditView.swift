@@ -45,7 +45,8 @@ struct ReminderEditView: View {
 
     // Closure property to accept the add function
     let addReminder: (ReminderObject) -> Void
-    
+
+
     var body: some View {
         VStack {
             Form {
@@ -116,6 +117,9 @@ struct ReminderEditView: View {
                 }
                 
                 Button(action: {
+                    let dateFormatter = DateFormatter()
+                    // Set the locale to use the user's current locale for time formatting
+                    dateFormatter.locale = Locale.current
                     
                     var components = DateComponents()
                     
@@ -169,18 +173,17 @@ struct ReminderEditView: View {
                         }
                         
                         if(recurrenceOption>=1){
-                            let dateFormatter = DateFormatter()
                             dateFormatter.timeStyle = .short
-
-                            // Set the locale to use the user's current locale for time formatting
-                            dateFormatter.locale = Locale.current
-
                             let timeString = dateFormatter.string(from: time)
                             
                             reminderString = "\(reminderString), \(timeString)"
                         }
                     } else {
-                        reminderString = "At \(date)"
+                        dateFormatter.dateStyle = .full
+                        dateFormatter.timeStyle = .short
+
+                        let dateString = dateFormatter.string(from: date)
+                        reminderString = "At \(dateString)"
                     }
                     
 

@@ -10,27 +10,23 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("profileCreated") private var profileCreated: Bool = false
     @State private var showingProfile = false
-    
-    let backgroundGradient = LinearGradient(
-        colors: [Color.red, Color.blue],
-        startPoint: .top, endPoint: .bottom)
+
     
     var body: some View {
         NavigationView {
             ZStack {
-                backgroundGradient
-                                .ignoresSafeArea()
                 if showingProfile || !profileCreated {
                     if profileCreated {
                         ProfileCompletedView(showingProfile: $showingProfile)
                     } else {
-                        PetProfileView()
+                        ProfileEditView()
                     }
                 } else {
                     RemindersView(showingProfile: $showingProfile)
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle()) // Use stack navigation style on iPad
     }
 }
 

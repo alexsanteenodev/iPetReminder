@@ -29,7 +29,6 @@ struct Notification {
         content.sound = .default
         content.badge = 1 // You can set this to the number you want to appear on the app's badge icon.
 
-//        let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: repeats) // 60 seconds from now
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats:true)
 
         let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)

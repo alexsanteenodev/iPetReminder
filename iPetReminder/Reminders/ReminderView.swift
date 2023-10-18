@@ -68,15 +68,11 @@ struct RemindersView: View {
                             text: section.text,
                             addImage: section.addImage
                         )
-//                      .listRowBackground(Color.gray)
-
-
                     }
                 }
-//                .foregroundColor(.red)
                 .accentColor(.orange)
                 .background(backgroundGradient)
-//              .scrollContentBackground(.hidden)
+
             }
          }
         .onAppear(perform: {
@@ -110,6 +106,7 @@ struct RemindersView: View {
                 }
             }
         )
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func bindingForSection(_ key: String) -> Binding<[ReminderObject]> {
