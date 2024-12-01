@@ -195,8 +195,8 @@ struct ReminderEditView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     HStack {
-                        Image(systemName: "plus")
-                        Text("Add Reminder")
+                        Image(systemName: "checkmark.circle.fill")
+                        Text("Save Reminder")
                     }
                 }
             }

@@ -43,38 +43,47 @@ struct RemindersView: View {
     
     @State private var customReminders: [ReminderObject] = UserDefaults.standard.remindersForKey("customReminders")
     @Environment(\.scenePhase) private var scenePhase
-
-    var notification = Notification()
-
+    @AppStorage("profileImage") private var profileImageData: Data?
+    @AppStorage("petName") private var petName: String = ""
     
     let backgroundGradient = LinearGradient(
-        colors: [Color.green, Color.blue],
-        startPoint: .top, endPoint: .bottom)
+        colors: [
+            Color(.systemBackground),
+            Color(.systemBackground)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
     
-    
+    var notification = Notification()
     
     var body: some View {
-        
         NavigationView {
             ZStack {
                 backgroundGradient.edgesIgnoringSafeArea(.all)
-                Form {
-                    ForEach(reminderSections, id: \.category) { section in
-                        ReminderSectionView(
-                            category: section.category,
-                            key: section.key,
-                            reminders: self.bindingForSection(section.key),
-                            title: section.title,
-                            text: section.text,
-                            addImage: section.addImage
-                        )
+                
+                VStack(spacing: 0) {
+                    // Add the Profile Header component
+                    Header()
+                        .frame(height: 160)
+                    
+                    // Original Form with reminders
+                    Form {
+                        ForEach(reminderSections, id: \.category) { section in
+                            ReminderSectionView(
+                                category: section.category,
+                                key: section.key,
+                                reminders: self.bindingForSection(section.key),
+                                title: section.title,
+                                text: section.text,
+                                addImage: section.addImage
+                            )
+                        }
                     }
+                    .accentColor(.orange)
                 }
-                .accentColor(.orange)
-                .background(backgroundGradient)
-
             }
-         }
+        }
         .onAppear(perform: {
             
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
@@ -94,7 +103,7 @@ struct RemindersView: View {
 
             
         })
-        .navigationBarItems(leading:
+        .navigationBarItems(trailing:
             Button(action: {
                 showingProfile.toggle()
             }) {

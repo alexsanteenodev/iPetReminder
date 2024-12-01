@@ -6,11 +6,43 @@
 //
 
 import Foundation
-
 import UserNotifications
+import UIKit
 
 struct Notification {
+    // Add helper function to get profile image
+    private func getProfileImage() -> UIImage? {
+        if let imageData = UserDefaults.standard.data(forKey: "profileImage"),
+           let image = UIImage(data: imageData) {
+            return image
+        }
+        return nil
+    }
     
+    private func addImageAttachment(_ content: UNMutableNotificationContent) {
+        if let image = getProfileImage() {
+            // Create a temporary URL to store the image
+            let temporaryDirectoryURL = FileManager.default.temporaryDirectory
+            let imageURL = temporaryDirectoryURL.appendingPathComponent("petImage.png")
+            
+            // Convert image to PNG data and write to temporary file
+            if let imageData = image.pngData() {
+                try? imageData.write(to: imageURL)
+                
+                // Create attachment
+                if let attachment = try? UNNotificationAttachment(
+                    identifier: "petImage",
+                    url: imageURL,
+                    options: nil
+                ) {
+                    content.attachments = [attachment]
+                }
+            }
+        } else {
+            // If no image, show badge
+            content.badge = 1
+        }
+    }
 
     func removeNotification(withUUID uuid: UUID) {
         let identifier = uuid.uuidString
@@ -27,7 +59,9 @@ struct Notification {
         content.title = title
         content.body = text
         content.sound = .default
-        content.badge = 1 // You can set this to the number you want to appear on the app's badge icon.
+        
+        // Add image attachment if available, otherwise add badge
+        addImageAttachment(content)
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats:true)
 
@@ -50,8 +84,9 @@ struct Notification {
         content.title = title
         content.body = text
         content.sound = .default
-        content.badge = 1 // You can set this to the number you want to appear on the app's badge icon.
         
+        // Add image attachment if available, otherwise add badge
+        addImageAttachment(content)
         
         let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         

@@ -11,28 +11,37 @@ struct Header: View {
     @AppStorage("profileImage") private var profileImageData: Data?
 
     var body: some View {
-        ZStack(alignment: .top) {
-                
-            
+        ZStack {
             Rectangle()
-                .foregroundColor(Color.white)
-                            .edgesIgnoringSafeArea(.top)
-                            .frame(height: 100)
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.blue.opacity(0.1)]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .edgesIgnoringSafeArea(.top)
+                .frame(height: 160)
             
             if let data = profileImageData,
-                          let uiImage = UIImage(data: data) {
-                           Image(uiImage: uiImage)
-                               .resizable()
-                               .aspectRatio(contentMode: .fill)
-                               .frame(width: 150, height: 150)
-                               .clipShape(Circle())
-                       } else {
-                           Image(systemName: "person.circle.fill")
-                               .resizable()
-                               .aspectRatio(contentMode: .fill)
-                               .frame(width: 150, height: 150)
-                               .clipShape(Circle())
-                       }
+               let uiImage = UIImage(data: data) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 130, height: 130)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 5)
+            } else {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 130, height: 130)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 5)
+                    .foregroundColor(.gray)
+            }
         }
     }
 }

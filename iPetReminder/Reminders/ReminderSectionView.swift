@@ -20,7 +20,7 @@ struct ReminderSectionView: View {
                 List {
                     ForEach(reminders, id: \.self) { reminder in
                         HStack {
-                            Text(reminder.reminderString)
+                            Text(reminder.title == "" ? reminder.reminderString : reminder.title + " " + reminder.reminderString)
                         }
                     }
                     .onDelete(perform: delete)
@@ -29,7 +29,7 @@ struct ReminderSectionView: View {
             NavigationLink(destination: ReminderEditView(addReminder: add)) {
                 HStack {
                     Image(systemName: addImage)
-                    Text("Add Reminder")
+                    Text("Create Reminder")
                 }
             }
         }

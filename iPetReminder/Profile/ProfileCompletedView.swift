@@ -16,29 +16,38 @@ struct ProfileCompletedView: View {
     @Binding var showingProfile: Bool
     
     var body: some View {
-        VStack() {
-            VStack {
-                Header()
-                ProfileText()
+        VStack(spacing: 0) {
+            Header()
+            
+            ScrollView {
+                VStack(spacing: 25) {
+                    ProfileText()
+                    
+                    NavigationLink(destination: ProfileEditView()) {
+                        Label("Edit Profile", systemImage: "pencil")
+                            .padding(.horizontal, 30)
+                            .padding(.vertical, 12)
+                            .background(Color.blue.opacity(0.1))
+                            .foregroundColor(.blue)
+                            .cornerRadius(25)
+                    }
+                    .simultaneousGesture(TapGesture().onEnded{
+                        profileCreated = false
+                    })
+                }
+                .padding(.top, 60)
+                .padding(.bottom)
             }
-            Spacer()
-            NavigationLink(destination: ProfileEditView()) {
-                Label("Edit", systemImage: "pencil")
-                    .padding()
-                    .foregroundColor(.blue)
-                    .cornerRadius(10)
-            }
-            .simultaneousGesture(TapGesture().onEnded{
-                profileCreated = false
-            })
         }
         .navigationBarItems(leading:
             Button(action: {
                 showingProfile.toggle()
             }) {
                 HStack {
+                    Image(systemName: "chevron.left")
                     Text("Reminders")
                 }
+                .foregroundColor(.blue)
             }
         )
     }
@@ -51,18 +60,20 @@ struct ProfileText: View {
 
     var body: some View {
         VStack(spacing: 15) {
-            VStack(spacing: 5) {
+            VStack(spacing: 8) {
                 Text(petName)
-                    .bold()
                     .font(.title)
+                    .fontWeight(.bold)
                 Text(petType)
-                    .font(.body)
+                    .font(.headline)
                     .foregroundColor(.secondary)
-            }.padding()
+            }
+            
             Text(description)
                 .multilineTextAlignment(.center)
-                .padding()
-            Spacer()
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }

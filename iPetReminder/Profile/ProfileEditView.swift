@@ -35,47 +35,82 @@ struct ProfileEditView: View {
     
     var body: some View {
         NavigationView {
-                        Form {
-                            Section(header: Text("Pet Information")) {
-                                Button("Take Photo") {
-                                            isCameraPickerPresented.toggle()
-                                        }
-                                        .padding()
-                                        .sheet(isPresented: $isCameraPickerPresented) {
-                                            ImagePicker(sourceType: .camera, selectedImage: self.$image)
-                                        }
-
-                            Button("Choose from Gallery") {
-                                            isGalleryPickerPresented.toggle()
-                                        }
-                                        .padding()
-                                        .sheet(isPresented: $isGalleryPickerPresented) {
-                                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-                                            
-                                        }
-                                
-
-    
-                                
-                                if image.size.width > 0 && image.size.height > 0 {
-                                    Image(uiImage: image) // Display the default image if profileImageData is nil
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 150, height: 150)
-                                        .padding()
-                                } else if let data = profileImageData, let profileImage = UIImage(data: data) {
-                                    Image(uiImage: profileImage)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 150, height: 150)
-                                        .padding()
-                                }
-                                
-                                TextField("Pet Name", text: $petName)
-                                TextField("Pet Type/Breed", text: $petType)
-                                TextEditor(text: $description)
+            Form {
+                Section {
+                    VStack(alignment: .center, spacing: 20) {
+                        if image.size.width > 0 {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 120, height: 120)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray.opacity(0.2), lineWidth: 2))
+                        } else if let data = profileImageData, let profileImage = UIImage(data: data) {
+                            Image(uiImage: profileImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 120, height: 120)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.gray.opacity(0.2), lineWidth: 2))
+                        } else {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 120, height: 120)
+                                .foregroundColor(.gray)
+                        }
+                        
+                        HStack(spacing: 20) {
+                            Button {
+                                isCameraPickerPresented = true
+                                isGalleryPickerPresented = false
+                            } label: {
+                                Label("Camera", systemImage: "camera")
+                                    .foregroundColor(.blue)
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 8)
+                                    .background(Color.blue.opacity(0.1))
+                                    .cornerRadius(8)
+                            }
+                            
+                            Button {
+                                isGalleryPickerPresented = true
+                                isCameraPickerPresented = false
+                            } label: {
+                                Label("Gallery", systemImage: "photo")
+                                    .foregroundColor(.blue)
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 8)
+                                    .background(Color.blue.opacity(0.1))
+                                    .cornerRadius(8)
                             }
                         }
+                        .buttonStyle(BorderlessButtonStyle())
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
+                }
+                
+                Section(header: Text("Pet Details")) {
+                    TextField("Pet Name", text: $petName)
+                    TextField("Pet Type/Breed", text: $petType)
+                }
+                
+                Section(header: Text("About")) {
+                    TextEditor(text: $description)
+                        .frame(height: 100)
+                }
+            }
+            .navigationTitle("Edit Profile")
+            .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $isCameraPickerPresented) {
+                ImagePicker(sourceType: .camera, selectedImage: $image)
+                    .ignoresSafeArea()
+            }
+            .sheet(isPresented: $isGalleryPickerPresented) {
+                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                    .ignoresSafeArea()
+            }
         }
         .onAppear {
                     if let data = image.jpegData(compressionQuality: 0.8) {
