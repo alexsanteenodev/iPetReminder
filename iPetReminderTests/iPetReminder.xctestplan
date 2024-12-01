@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "77FA807A-7620-4A54-8524-87EC75CF839B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:iPetReminder.xcodeproj",
+      "identifier" : "D03F8AAE2AB60EF70016CDAA",
+      "name" : "iPetReminder"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:iPetReminder.xcodeproj",
+        "identifier" : "D05550792CFCA4790090A574",
+        "name" : "iPetReminderTests"
+      }
+    }
+  ],
+  "version" : 1
+}
